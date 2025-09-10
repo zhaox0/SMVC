@@ -287,7 +287,7 @@
                 <div class="abstract">
                     <h2>Abstract</h2>
                     <p>Traditional Voice conversion (VC) converts a source speech into a target one based on a reference voice of target speaker, while face-based VC does it on a reference face image of that.
-In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC), a clue-based VC model with switchable modality, which can infers a converted speech optionally based on a face image or voice of target speaker.We adopt a normalizing flow to map the voice-related features extracted from a face image to that extracted from a speech, and introduce a cross-modal consistency loss to align the feature distributions from a face image and that from a speech with each other.</p>
+In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC), a clue-based VC model with switchable modality, which can infers a converted speech optionally based on a face image or voice of target speaker.We adopt a normalizing flow to map the voice-related features extracted from a face image to that extracted from a speech, and introduce a cross-modal consistency loss to align the feature distributions from a face image and that from a speech with each other.The results verify that SMVC do well based on the both reference clues of one kind of modality, a face image or voice. Moreover, SMVC achieves the SOTA performance among face-based VC methods.</p>
                 </div>
                 <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/model.jpg" style="max-width:100%;height:auto;margin-top:20px;">
             </div>
@@ -303,18 +303,18 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/11/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+1" alt="Target Face 1" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/1.jpg" alt="Target Face 1" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/11/title11.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -324,28 +324,28 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/11/11.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/11/11.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/11/11.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/11/11.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/1.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -357,18 +357,18 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/12/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+2" alt="Target Face 2" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/2.jpg" alt="Target Face 2" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/12/title12.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -378,28 +378,28 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/12/12.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/12/12.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/12/12.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/12/12.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/2.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -411,18 +411,18 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/13/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+3" alt="Target Face 3" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/3.jpg" alt="Target Face 3" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/13/title13.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -432,28 +432,28 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/13/13.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/13/13.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/13/13.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/13/13.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/3.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -465,18 +465,18 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+4" alt="Target Face 4" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/4.jpg" alt="Target Face 4" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -486,51 +486,51 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/4.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                     </div>
                     
-                    <!-- Sample 4 -->
+                    <!-- Sample 5 -->
                     <div class="sample-label" style="margin-top: 30px;">Sample 5</div>
                     <div class="main-comparison">
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+4" alt="Target Face 4" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/5.jpg" alt="Target Face 5" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -540,51 +540,51 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/5.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                     </div>
                     
-                    <!-- Sample 4 -->
+                    <!-- Sample 6-->
                     <div class="sample-label" style="margin-top: 30px;">Sample 6</div>
                     <div class="main-comparison">
                         <div class="comparison-item">
                             <div class="comparison-label">Source Speaker</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">Target Speaker</div>
-                            <img src="https://via.placeholder.com/120x120?text=Face+4" alt="Target Face 4" class="face-image">
+                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/6.jpg" alt="Target Face 6" class="face-image">
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">SMVC (Ours)</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -594,28 +594,28 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                         <div class="method-card">
                             <div class="method-name">FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/Style-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">SP-FaceVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/ConsistencyVC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
                             <div class="method-name">FVMVC</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/X-E-Speech/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                         <div class="method-card">
-                            <div class="method-name">FaceTTS</div>
+                            <div class="method-name">HYFace</div>
                             <audio controls>
-                                <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/DDDM-VC/14/14.wav" type="audio/wav">
+                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/6.wav" type="audio/wav">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -625,7 +625,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                 
             <div class="section">
                 <h2>Voice-based VC</h2>
-                <p>In voice-based VC, we infer on the face image of target speaker to convert the speech.</p>
+                <p>In voice-based VC, we infer on the spech of target speaker to convert the speech.</p>
                 <div class="comparison-section">
                     <table class="audio-table">
                         <thead>
@@ -643,7 +643,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                     <div class="sample-label">Sample 1</div>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/11/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/1.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -651,7 +651,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/11/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/1.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -659,7 +659,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/11/title11.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/1.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -673,7 +673,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                     <div class="sample-label">Sample 2</div>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/12/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/2.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -681,7 +681,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/12/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/2.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -689,7 +689,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/12/title12.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/2.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -704,7 +704,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/13/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/3.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -712,7 +712,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/13/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/3.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -720,7 +720,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/13/title13.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/3.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -735,7 +735,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/4.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -743,7 +743,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/4.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -751,7 +751,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/4.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -766,7 +766,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/5.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -774,7 +774,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/5.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -782,7 +782,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/5.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -797,7 +797,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/src.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/6.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -805,7 +805,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/trg.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/6.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
@@ -813,7 +813,7 @@ In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC),
                                 </td>
                                 <td class="audio-cell">
                                     <audio controls>
-                                        <source src="https://raw.githubusercontent.com/TengNN/ExpressiveVC/main/Demo/seen/EC-VC/14/title14.wav" type="audio/wav">
+                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/6.wav" type="audio/wav">
                                         Your browser does not support the audio element.
                                     </audio>
                                     <div class="audio-info">
