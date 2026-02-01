@@ -4,7 +4,6 @@ import torch.nn.functional as F
 
 
 # from torch.autograd import Function
-
 # import numpy as np
 
 class Self_Attn(nn.Module):
@@ -321,5 +320,6 @@ class FaceEncoder(nn.Module):
         c_trg, mu, logvar = self.reparam(c_trg)  # 重参数化得到潜在表示
         c_trg = self.trans_layer(c_trg)  # 线性变换
         c_trg = c_trg.permute(0, 2, 1)  # 调整维度
+
 
         return c_trg
