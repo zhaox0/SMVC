@@ -1,1 +1,3 @@
-#The source code will be released upon acceptance.
+## Code Availability
+The source code will be released upon acceptance of the paper.
+
