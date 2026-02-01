@@ -48,7 +48,6 @@ class WN(torch.nn.Module):
       res_skip_layer = torch.nn.utils.weight_norm(res_skip_layer, name='weight')
       self.res_skip_layers.append(res_skip_layer)
 
-
   def forward(self, x):
     output = torch.zeros_like(x)
 
