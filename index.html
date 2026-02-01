@@ -289,8 +289,7 @@
             <div class="section">
                 <div class="abstract">
                     <h2>Abstract</h2>
-                    <p>Traditional voice conversion (VC) converts source speech into target one based on the reference voice of the target speaker, while face-based VC does it on the reference face image of that. 
-                    In this work, we propose Switchable Modality Clue-based Voice Conversion (SMVC), a clue-based VC model with switchable modality, which can infer converted speech optionally based on either face images or voices of target speaker. We adopt a normalizing flow to map voice-related features extracted from face images to those from speech, and introduce a cross-modal consistency loss to align the feature distributions of face images and that of speech. Experimental results demonstrate that SMVC performs well using reference clues from either modality, whether face images or voices. Moreover, SMVC achieves the optimal performance among the face-based VC methods.</p>
+                    <p>Traditional voice conversion (VC) converts source speech into target speech based on a reference voice of the target speaker, while face-based VC performs this conversion using a reference face image of that. However, existing face-based and voice-based VC methods are typically designed for isolated application scenarios. To overcome this limitation, we propose Switchable Modality Clue-based Voice Conversion (SMVC), a VC framework that enables modality-switchable inference using either a face image or a voice reference of the target speaker. To bridge the modality gap, we adopt a normalizing flow to map voice-related features extracted from face images to those from speech, together with a cross-modal consistency loss to align the feature distributions of face images and that of speech. Experimental results demonstrate that SMVC performs well using reference clues from either modality, whether face images or voices. Moreover, our model achieves the optimal performance among the face-based VC methods.</p>
                 </div>
                 <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/model.jpg" style="max-width:100%;height:auto;margin-top:20px;">
             </div>
@@ -853,6 +852,7 @@
     </script>
 </body>
 </html>
+
 
 
 
