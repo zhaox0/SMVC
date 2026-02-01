@@ -8,7 +8,6 @@ class WN(torch.nn.Module):
     self.n_layers = n_layers
     self.gin_channels = gin_channels
     self.p_dropout = p_dropout
-
     self.in_layers = torch.nn.ModuleList()
     self.res_skip_layers = torch.nn.ModuleList()
     self.drop = nn.Dropout(p_dropout)
