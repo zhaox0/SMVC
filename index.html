@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMVC Demo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
     <style>
         * {
             margin: 0;
@@ -12,7 +17,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: #333;
@@ -28,32 +33,37 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         header {
             background: linear-gradient(90deg, #3498db, #2c3e50);
             color: white;
             padding: 30px;
             text-align: center;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-        
+
+        .first-line,
+        .second-line {
+            display: block;
+        }
+
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
         }
-        
+
         .content {
             padding: 30px;
         }
-        
+
         .section {
             margin-bottom: 40px;
         }
-        
+
         h2 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
@@ -61,26 +71,29 @@
             margin-bottom: 20px;
             font-size: 1.8rem;
         }
-        
+
         h3 {
             color: #3498db;
             margin: 15px 0;
             font-size: 1.4rem;
         }
-        
+
         p {
             margin-bottom: 15px;
             line-height: 1.8;
         }
-        
+
         .abstract {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
             border-left: 4px solid #3498db;
         }
-        
-        /* Audio comparison tables */
+
+        /* =========================
+           Comparison section
+           ========================= */
+
         .comparison-section {
             background: #f8f9fa;
             padding: 25px;
@@ -88,97 +101,94 @@
             margin-top: 20px;
             overflow-x: auto;
         }
-        
-        .comparison-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            font-size: 1.5rem;
-        }
-        
-        .audio-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            min-width: 1200px;
-        }
-        
-        .audio-table th, .audio-table td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .audio-table th {
-            background-color: #3498db;
-            color: white;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        
-        .audio-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        .audio-table tr:hover {
+
+        .sample-label {
+            font-weight: bold;
             background-color: #e8f4fc;
+            padding: 8px 14px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: inline-block;
+            color: #2c3e50;
         }
-        
-        .audio-cell {
-            min-width: 150px;
-        }
-        
-        audio {
-            width: 100%;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-        
-        .audio-info {
+
+        /*
+         * First row:
+         * Source Speaker / Target Speaker / SMVC
+         */
+        .main-comparison {
             display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
+            justify-content: space-around;
+            align-items: stretch;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            gap: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
         }
-        
-        .rating {
-            color: #f39c12;
+
+        .comparison-item {
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
-        
-        /* Face-based VC styles */
-        .face-vc-row {
-            background-color: #f0f8ff;
+
+        .comparison-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1rem;
         }
-        
-        .comparison-methods-row {
-            background-color: #f8f9fa;
-        }
-        
+
+        /*
+         * Second row:
+         * 5 comparison methods
+         */
         .comparison-methods {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            /* Changed from 4 columns to 5 columns */
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+
             gap: 15px;
             padding: 15px;
+            background-color: #f8f9fa;
+            margin-bottom: 15px;
         }
-        
+
         .method-card {
             background: white;
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
+            min-width: 0;
         }
-        
+
         .method-name {
             font-weight: bold;
             margin-bottom: 10px;
             color: #2c3e50;
+            white-space: nowrap;
         }
-        
+
+        /*
+         * Highlight SMVC slightly
+         */
+        .smvc-item {
+            background: #f4faff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /*
+         * Target face image
+         */
         .face-image {
             width: 120px;
             height: 120px;
@@ -186,34 +196,20 @@
             border-radius: 8px;
             border: 2px solid #3498db;
         }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: white;
-            margin-top: 40px;
+
+        /*
+         * Audio players
+         */
+        audio {
+            width: 100%;
+            max-width: 280px;
+            margin-top: 10px;
+            border-radius: 5px;
         }
-        
-        @media (max-width: 768px) {
-            .comparison-methods {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .audio-table {
-                font-size: 0.8rem;
-            }
-            
-            .face-image {
-                width: 80px;
-                height: 80px;
-            }
-        }
+
+        /* =========================
+           GitHub button
+           ========================= */
 
         .github-link {
             display: inline-flex;
@@ -233,633 +229,1852 @@
             background-color: #1b1f23;
         }
 
-        .sample-label {
-            font-weight: bold;
-            background-color: #e8f4fc;
-            padding: 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        
-        /* New styles for the modified layout */
-        .main-comparison {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .comparison-item {
+        /* =========================
+           Footer
+           ========================= */
+
+        footer {
             text-align: center;
-            flex: 1;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 40px;
         }
-        
-        .comparison-label {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #2c3e50;
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           Responsive
+           ========================= */
+
+        @media (max-width: 1200px) {
+            .comparison-methods {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-comparison {
+                flex-direction: column;
+            }
+
+            .comparison-methods {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .comparison-section {
+                padding: 15px;
+            }
+
+            .comparison-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .face-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            audio {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
+
+
 <body>
-    <div class="container">
-        <header>
-            <h1>
-                <span class="first-line">Content-Synchronous Time-Varying Style Modeling for</span>
-                <span class="second-line">Switchable-Modality Expressive Voice Conversion</span>
-            </h1>
-        
-            
-            <a href="https://github.com/zhaox0/SMVC" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="github-link">
-               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
-                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01 0.37-2.53-.46-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.19-.82 2.19-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-               </svg>
-               Code
-            </a>
-        </header>
-        
-        <div class="content">
-            <div class="section">
-                <div class="abstract">
-                    <h2>Abstract</h2>
-                    <p>Expressive voice conversion (VC) aims to transfer speaker and emotional characteristics while preserving linguistic content. However, existing methods often rely on global style representations and a single reference modality, limiting their ability to model time-varying style characteristics and adapt to diverse scenarios. To address these issues, we propose Switchable-Modality Voice Conversion (SMVC), a unified expressive VC framework that supports either a facial image or reference speech as the target reference. SMVC introduces a Content-Synchronous Time-Varying Style (CSTS) module for content-synchronous style modeling, a multimodal style encoder with a normalizing flow for aligning facial and speech style embeddings, and a content processing block that combines style-dependent duration prediction with Perturbation-Level Mixing (PMix) for target style adaptation and source speaker disentanglement. Experiments under both Seen-to-Seen and Unseen-to-Unseen scenarios show that SMVC consistently outperforms the compared face-based VC methods and remains competitive with representative speech-based methods. Modality-switching experiments demonstrate that a single jointly trained model can effectively support both reference modalities, while ablation and further analyses verify the contributions of the proposed components and the effectiveness of style-dependent duration predictor. </p>
-                </div>
-                <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/model.jpg" style="max-width:100%;height:auto;margin-top:20px;">
+
+<div class="container">
+
+    <!-- =====================================================
+         Header
+         ===================================================== -->
+
+    <header>
+        <h1>
+            <span class="first-line">
+                Content-Synchronous Time-Varying Style Modeling for
+            </span>
+
+            <span class="second-line">
+                Switchable-Modality Expressive Voice Conversion
+            </span>
+        </h1>
+
+        <a
+            href="https://github.com/zhaox0/SMVC"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-link"
+        >
+            <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+            >
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53
+                5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.46-2.69-.94
+                -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                -.01-.53.63-.01 1.08.58 1.23.82.72 1.21
+                1.87.87 2.33.66.07-.52.28-.87.51-1.07
+                -1.78-.2-3.64-.89-3.64-3.95
+                0-.87.31-1.59.82-2.15-.08-.2-.36-1.02
+                .08-2.12 0 0 .67-.21 2.2.82
+                .64-.18 1.32-.27 2-.27.68 0
+                1.36.09 2 .27 1.53-1.04 2.19-.82
+                2.19-.82.44 1.1.16 1.92.08 2.12
+                .51.56.82 1.27.82 2.15 0 3.07
+                -1.87 3.75-3.65 3.95.29.25.54.73
+                .54 1.48 0 1.07-.01 1.93-.01 2.2
+                0 .21.15.46.55.38A8.013 8.013
+                0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                </path>
+            </svg>
+
+            Code
+        </a>
+    </header>
+
+
+    <div class="content">
+
+        <!-- =====================================================
+             Abstract
+             ===================================================== -->
+
+        <div class="section">
+
+            <div class="abstract">
+                <h2>Abstract</h2>
+
+                <p>
+                    Expressive voice conversion (VC) aims to transfer speaker
+                    and emotional characteristics while preserving linguistic
+                    content. However, existing methods often rely on global
+                    style representations and a single reference modality,
+                    limiting their ability to model time-varying style
+                    characteristics and adapt to diverse scenarios.
+                    To address these issues, we propose Switchable-Modality
+                    Voice Conversion (SMVC), a unified expressive VC framework
+                    that supports either a facial image or reference speech as
+                    the target reference. SMVC introduces a
+                    Content-Synchronous Time-Varying Style (CSTS) module for
+                    content-synchronous style modeling, a multimodal style
+                    encoder with a normalizing flow for aligning facial and
+                    speech style embeddings, and a content processing block
+                    that combines style-dependent duration prediction with
+                    Perturbation-Level Mixing (PMix) for target style
+                    adaptation and source speaker disentanglement.
+                    Experiments under both Seen-to-Seen and Unseen-to-Unseen
+                    scenarios show that SMVC consistently outperforms the
+                    compared face-based VC methods and remains competitive
+                    with representative speech-based methods.
+                    Modality-switching experiments demonstrate that a single
+                    jointly trained model can effectively support both
+                    reference modalities, while ablation and further analyses
+                    verify the contributions of the proposed components and
+                    the effectiveness of style-dependent duration predictor.
+                </p>
             </div>
-            
-            <div class="section">
-                <h2>Face-based VC</h2>
-                <p>In face-based voice conversion, we infer on the face image of target speaker to convert the speech.</p>
-                
-                <div class="comparison-section">
-                    <!-- Sample 1 -->
-                    <div class="sample-label">Sample 1</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
+
+            <img
+                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/models.jpg"
+                style="max-width:100%;height:auto;margin-top:20px;"
+                alt="SMVC Model"
+            >
+
+        </div>
+
+
+        <!-- =====================================================
+             Face-based VC
+             ===================================================== -->
+
+        <div class="section">
+
+            <h2>Face-based VC</h2>
+
+            <p>
+                In face-based voice conversion, we infer on the face image
+                of target speaker to convert the speech.
+            </p>
+
+
+            <div class="comparison-section">
+
+
+                <!-- =================================================
+                     FACE SAMPLE 1
+                     ================================================= -->
+
+                <div class="sample-label">Sample 1</div>
+
+                <!-- First row -->
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
                         </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/1.jpg" alt="Target Face 1" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
                     </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
                         </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/1.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/1.jpg"
+                            alt="Target Face 1"
+                            class="face-image"
+                        >
+
                     </div>
-                    
-                    <!-- Sample 2 -->
-                    <div class="sample-label" style="margin-top: 30px;">Sample 2</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
                         </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/2.jpg" alt="Target Face 2" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
                     </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/2.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <!-- Sample 3 -->
-                    <div class="sample-label" style="margin-top: 30px;">Sample 3</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/3.jpg" alt="Target Face 3" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/3.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <!-- Sample 4 -->
-                    <div class="sample-label" style="margin-top: 30px;">Sample 4</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/4.jpg" alt="Target Face 4" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/4.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <!-- Sample 5 -->
-                    <div class="sample-label" style="margin-top: 30px;">Sample 5</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/5.jpg" alt="Target Face 5" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/5.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <!-- Sample 6-->
-                    <div class="sample-label" style="margin-top: 30px;">Sample 6</div>
-                    <div class="main-comparison">
-                        <div class="comparison-item">
-                            <div class="comparison-label">Source Speaker</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">Target Speaker</div>
-                            <img src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/6.jpg" alt="Target Face 6" class="face-image">
-                        </div>
-                        <div class="comparison-item">
-                            <div class="comparison-label">SMVC (Ours)</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    
-                    <div class="comparison-methods">
-                        <div class="method-card">
-                            <div class="method-name">FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">SP-FaceVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">FVMVC</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-name">HYFace</div>
-                            <audio controls>
-                                <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/6.wav" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
+
                 </div>
-            </div>
-                
-            <div class="section">
-                <h2>Voice-based VC</h2>
-                <p>In voice-based VC, we infer on the voice of target speaker to convert the speech.</p>
-                <div class="comparison-section">
-                    <table class="audio-table">
-                        <thead>
-                            <tr>
-                                <th>Sample</th>
-                                <th>Source Speaker</th>
-                                <th>Target Speaker</th>
-                                <th>SMVC (Ours)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Sample 1 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 1</div>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/1.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/1.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/1.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            <!-- Sample 2 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 2</div>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/2.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/2.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/2.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            <!-- Sample 3 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 3</div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/3.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/3.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/3.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            <!-- Sample 4 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 4</div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/4.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/4.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/4.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            <!-- Sample 4 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 5</div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/5.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/5.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/5.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            <!-- Sample 4 -->
-                            <tr>
-                                <td>
-                                    <div class="sample-label">Sample 6</div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/6.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/6.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                                <td class="audio-cell">
-                                    <audio controls>
-                                        <source src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/6.wav" type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="audio-info">
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+
+                <!-- Second row -->
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
                 </div>
+
+
+
+                <!-- =================================================
+                     FACE SAMPLE 2
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 2
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Source Speaker</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Target Speaker</div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/2.jpg"
+                            alt="Target Face 2"
+                            class="face-image"
+                        >
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+                        <div class="comparison-label">SMVC (Ours)</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACE SAMPLE 3
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 3
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Source Speaker</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Target Speaker</div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/3.jpg"
+                            alt="Target Face 3"
+                            class="face-image"
+                        >
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+                        <div class="comparison-label">SMVC (Ours)</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACE SAMPLE 4
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 4
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Source Speaker</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Target Speaker</div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/4.jpg"
+                            alt="Target Face 4"
+                            class="face-image"
+                        >
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+                        <div class="comparison-label">SMVC (Ours)</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACE SAMPLE 5
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 5
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Source Speaker</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Target Speaker</div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/5.jpg"
+                            alt="Target Face 5"
+                            class="face-image"
+                        >
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+                        <div class="comparison-label">SMVC (Ours)</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACE SAMPLE 6
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 6
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Source Speaker</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/source/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="comparison-item">
+                        <div class="comparison-label">Target Speaker</div>
+
+                        <img
+                            src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/target/6.jpg"
+                            alt="Target Face 6"
+                            class="face-image"
+                        >
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+                        <div class="comparison-label">SMVC (Ours)</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SMVC(ours)/SMVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FaceVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">SP-FaceVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/SP-FaceVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">FVMVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/FVMVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">HYFace</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/HYFace/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">V2sflow</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Face/V2sflow/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
             </div>
         </div>
-        
-        <footer>
-            <p>This page was generated by GitHub Pages.</p>
-        </footer>
+
+
+
+        <!-- =====================================================
+             Voice-based VC
+             ===================================================== -->
+
+        <div class="section">
+
+            <h2>Voice-based VC</h2>
+
+            <p>
+                In voice-based VC, we infer on the voice of target speaker
+                to convert the speech.
+            </p>
+
+
+            <div class="comparison-section">
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 1
+                     ================================================= -->
+
+                <div class="sample-label">
+                    Sample 1
+                </div>
+
+
+                <!-- First row:
+                     Source / Target voice / SMVC
+                -->
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Second row:
+                     StyleVC / ConsistencyVC / DDDM-VC / ExVC / CEI-VC
+                -->
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+
+                        <div class="method-name">
+                            StyleVC
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="method-card">
+
+                        <div class="method-name">
+                            ConsistencyVC
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="method-card">
+
+                        <div class="method-name">
+                            DDDM-VC
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="method-card">
+
+                        <div class="method-name">
+                            ExVC
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="method-card">
+
+                        <div class="method-name">
+                            CEI-VC
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/1.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 2
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 2
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">StyleVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ConsistencyVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">DDDM-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ExVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">CEI-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/2.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 3
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 3
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">StyleVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ConsistencyVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">DDDM-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ExVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">CEI-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/3.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 4
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 4
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">StyleVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ConsistencyVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">DDDM-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ExVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">CEI-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/4.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 5
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 5
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">StyleVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ConsistencyVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">DDDM-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ExVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">CEI-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/5.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VOICE SAMPLE 6
+                     ================================================= -->
+
+                <div
+                    class="sample-label"
+                    style="margin-top:30px;"
+                >
+                    Sample 6
+                </div>
+
+
+                <div class="main-comparison">
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Source Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/source/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item">
+
+                        <div class="comparison-label">
+                            Target Speaker
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/target/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+
+                    <div class="comparison-item smvc-item">
+
+                        <div class="comparison-label">
+                            SMVC (Ours)
+                        </div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/SMVC(ours)/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-methods">
+
+                    <div class="method-card">
+                        <div class="method-name">StyleVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/StyleVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ConsistencyVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ConsistencyVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">DDDM-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/DDDM-VC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">ExVC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/ExVC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+
+                    <div class="method-card">
+                        <div class="method-name">CEI-VC</div>
+
+                        <audio controls>
+                            <source
+                                src="https://raw.githubusercontent.com/zhaox0/SMVC/main/demo/Voice/CEI-VC/6.wav"
+                                type="audio/wav"
+                            >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        // Simple JavaScript to enhance audio player experience
-        document.addEventListener('DOMContentLoaded', function() {
-            const audioPlayers = document.querySelectorAll('audio');
-            
-            audioPlayers.forEach(player => {
-                player.addEventListener('play', function() {
-                    // When one audio starts playing, pause others
-                    audioPlayers.forEach(other => {
-                        if (other !== player && !other.paused) {
-                            other.pause();
-                        }
-                    });
+
+    <!-- =====================================================
+         Footer
+         ===================================================== -->
+
+    <footer>
+        <p>This page was generated by GitHub Pages.</p>
+    </footer>
+
+</div>
+
+
+<script>
+    /*
+     * When one audio starts playing,
+     * pause every other audio player.
+     */
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const audioPlayers = document.querySelectorAll('audio');
+
+        audioPlayers.forEach(function (player) {
+
+            player.addEventListener('play', function () {
+
+                audioPlayers.forEach(function (other) {
+
+                    if (other !== player && !other.paused) {
+                        other.pause();
+                    }
+
                 });
+
             });
+
         });
-    </script>
+
+    });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
