@@ -1,3 +1,3 @@
 ## Code
-We are currently organizing and refactoring the codebase.
-The complete code and pretrained models will be released upon acceptance.
+We are currently preparing the codebase for release. 
+The complete code and pretrained models will be made publicly available upon acceptance.
