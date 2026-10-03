@@ -387,32 +387,7 @@
                 <h2>Abstract</h2>
 
                 <p>
-                    Expressive voice conversion (VC) aims to transfer speaker
-                    and emotional characteristics while preserving linguistic
-                    content. However, existing methods often rely on global
-                    style representations and a single reference modality,
-                    limiting their ability to model time-varying style
-                    characteristics and adapt to diverse scenarios.
-                    To address these issues, we propose Switchable-Modality
-                    Voice Conversion (SMVC), a unified expressive VC framework
-                    that supports either a facial image or reference speech as
-                    the target reference. SMVC introduces a
-                    Content-Synchronous Time-Varying Style (CSTS) module for
-                    content-synchronous style modeling, a multimodal style
-                    encoder with a normalizing flow for aligning facial and
-                    speech style embeddings, and a content processing block
-                    that combines style-dependent duration prediction with
-                    Perturbation-Level Mixing (PMix) for target style
-                    adaptation and source speaker disentanglement.
-                    Experiments under both Seen-to-Seen and Unseen-to-Unseen
-                    scenarios show that SMVC consistently outperforms the
-                    compared face-based VC methods and remains competitive
-                    with representative speech-based methods.
-                    Modality-switching experiments demonstrate that a single
-                    jointly trained model can effectively support both
-                    reference modalities, while ablation and further analyses
-                    verify the contributions of the proposed components and
-                    the effectiveness of style-dependent duration predictor.
+                    Expressive voice conversion (VC) aims to transfer speaker and emotional characteristics while preserving linguistic content. However, existing methods often rely on global style embeddings and a single reference modality, limiting fine-grained style modeling and adaptability to diverse scenarios. To address these issues, we propose Switchable-Modality Voice Conversion (SMVC), a unified expressive VC framework supporting either a facial image or reference speech as the target style condition. SMVC comprises three key modules. The Content-Synchronous Time-Varying Style (CSTS) module for content-synchronous dynamic style modeling, a multimodal style encoder that uses a normalizing flow to map facial style embeddings into the speech style space for flexible modality switching, and a content processing block incorporating a style-dependent duration predictor and PMix for target style adaptation and source speaker disentanglement. Experiments show that SMVC consistently outperforms compared face-based VC methods and remains competitive with speech-based methods under both Seen-to-Seen and Unseen-to-Unseen scenarios. Modality-switching experiments confirm that a single jointly trained model effectively supports both reference modalities, and ablation studies verify the contributions of each key component.
                 </p>
 
             </div>
