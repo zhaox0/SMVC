@@ -6,7 +6,6 @@ from torch.nn.utils import weight_norm
 matplotlib.use("Agg")
 import matplotlib.pylab as plt
 
-
 def plot_spectrogram(spectrogram):
     fig, ax = plt.subplots(figsize=(10, 2))
     im = ax.imshow(spectrogram, aspect="auto", origin="lower",
@@ -24,12 +23,10 @@ def init_weights(m, mean=0.0, std=0.01):
     if classname.find("Conv") != -1:
         m.weight.data.normal_(mean, std)
 
-
 def apply_weight_norm(m):
     classname = m.__class__.__name__
     if classname.find("Conv") != -1:
         weight_norm(m)
-
 
 def get_padding(kernel_size, dilation=1):
     return int((kernel_size*dilation - dilation)/2)
