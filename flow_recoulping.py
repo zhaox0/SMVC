@@ -5,6 +5,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"  # 在哪个卡上跑程序（可更改）
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+
 class Flip(nn.Module):
   def forward(self, x,):
     x = torch.flip(x, [1])
