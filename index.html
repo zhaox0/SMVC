@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -632,6 +631,19 @@
             `${baseURL}/Face/${setting}/SMVC(ours)/target/${sampleNumber}.jpg`;
 
 
+        /*
+         * Target speaker speech.
+         *
+         * It is stored in the SAME folder as the face image,
+         * and numbered 1 ~ 4 as well.
+         *
+         * demo/Face/Seen-to-Seen/SMVC(ours)/target/1.wav
+         */
+
+        const targetAudio =
+            `${baseURL}/Face/${setting}/SMVC(ours)/target/${sampleNumber}.wav`;
+
+
         const smvcAudio =
             `${baseURL}/Face/${setting}/SMVC(ours)/SMVC/${sampleNumber}.wav`;
 
@@ -701,6 +713,8 @@
                         alt="${setting} Target Face ${sampleNumber}"
                         class="face-image"
                     >
+
+                    ${createAudio(targetAudio)}
 
                 </div>
 
@@ -967,4 +981,3 @@
 </body>
 
 </html>
-```
